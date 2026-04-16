@@ -21,6 +21,8 @@ const FIELD_MAP = {
   country:        ['country', 'nation'],
   linkedIn:       ['linkedin'],
   website:        ['website', 'portfolio', 'personal url', 'personal site'],
+  username:       ['username', 'user name', 'user-name', 'login', 'user id', 'userid'],
+  password:       ['password', 'passwd', 'pass word'],
   collegeName:    ['college', 'university', 'school', 'institution'],
   degree:         ['degree', 'qualification', 'education level'],
   fieldOfStudy:   ['major', 'field of study', 'specialization', 'branch', 'discipline'],
@@ -53,8 +55,9 @@ const FIELD_MAP = {
 // When input[type] unambiguously identifies a field, use it directly.
 
 const TYPE_MAP = {
-  email: 'email',
-  tel:   'phone',
+  email:    'email',
+  tel:      'phone',
+  password: 'password',
 };
 
 // ─── React-compatible Value Setter ────────────────────────────────────────
@@ -165,9 +168,11 @@ function matchField(element) {
   const titleAttr   = (element.getAttribute('title')      || '').toLowerCase();
 
   // 1. type="email"
-  if (type === 'email') return 'email';
+  if (type === 'email')    return 'email';
   // 1. type="tel"
-  if (type === 'tel')   return 'phone';
+  if (type === 'tel')      return 'phone';
+  // 1. type="password"
+  if (type === 'password') return 'password';
 
   // 2. type="url" — disambiguate linkedin vs website
   if (type === 'url') {

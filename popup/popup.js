@@ -14,6 +14,7 @@ const PROFILE_FIELDS = [
   'firstName', 'lastName', 'email', 'phone',
   'address', 'city', 'state', 'zip', 'country',
   'linkedIn', 'website',
+  'username', 'password',
 ];
 
 const EDUCATION_FIELDS = [
@@ -32,7 +33,9 @@ const WORK_FIELDS = [
 const DEFAULT_PROFILE = {
   firstName: '', lastName: '', email: '', phone: '',
   address: '', city: '', state: '', zip: '', country: '',
-  linkedIn: '', website: '', coverLetter: '',
+  linkedIn: '', website: '',
+  username: '', password: '',
+  coverLetter: '',
   collegeName: '', degree: '', fieldOfStudy: '', graduationYear: '',
   resumeFileName: '', resumeBase64: '', resumeMimeType: 'application/pdf',
   // Personal Details
@@ -138,6 +141,20 @@ async function saveProfile() {
 saveProfileBtn.addEventListener('click', saveProfile);
 saveEducationBtn.addEventListener('click', saveProfile);
 document.getElementById('saveExperienceBtn').addEventListener('click', saveProfile);
+
+// ─── Password Toggle ──────────────────────────────────────────────────────
+
+document.getElementById('togglePassword').addEventListener('click', () => {
+  const passwordInput = document.getElementById('password');
+  const btn = document.getElementById('togglePassword');
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    btn.textContent = '🙈';
+  } else {
+    passwordInput.type = 'password';
+    btn.textContent = '👁';
+  }
+});
 
 // ─── Resume File Handling ─────────────────────────────────────────────────
 

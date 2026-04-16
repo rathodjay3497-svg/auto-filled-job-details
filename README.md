@@ -5,7 +5,7 @@ A Chrome Extension (Manifest V3) that automatically fills job application forms 
 ## Features
 
 ### Profile Management
-- **Personal Information**: First name, last name, email, phone number
+- **Personal Information**: First name, last name, full name (auto-combined), email, phone number
 - **Address**: Street address, city, state, ZIP code, country
 - **Online Presence**: LinkedIn URL, portfolio/website URL
 - **Education**: College name, degree, field of study, graduation year
@@ -16,13 +16,14 @@ A Chrome Extension (Manifest V3) that automatically fills job application forms 
 - **Smart Field Matching**: Matches fields by name, id, placeholder, label, aria-label, and nearby text
 - **Framework Support**: Works with standard HTML forms, React, and Vue
 - **Resume Upload**: Automatically uploads your saved PDF resume to file input fields
+- **Full Name Handling**: Combines first and last name for full name fields
 - **Selective Filling**: Skips fields without matching profile data and shows results
 
 ### User Interface
-- **Tabbed Interface**: Three tabs - Profile, Education, Autofill
+- **Tabbed Interface**: Three tabs - Profile, Education, Experience
+- **Header Controls**: Fill and Clear buttons always visible
 - **Real-time Status**: Shows number of fields filled and skipped
 - **Error Reporting**: Displays any errors encountered during autofill
-- **Clear Function**: Option to clear all autofilled fields
 
 ## Installation
 
@@ -40,9 +41,9 @@ A Chrome Extension (Manifest V3) that automatically fills job application forms 
 2. Click the icon to open the popup
 3. Fill in your profile information in the Profile tab
 4. Click Save Profile
-5. Navigate to any job application form
-6. Click the extension icon and go to the Autofill tab
-7. Click "Autofill This Page"
+5. Navigate to any job application form (see Testing Sites above)
+6. Click the extension icon and click the "Fill" button
+7. Review the autofill results
 
 ## Field Matching
 
@@ -65,6 +66,7 @@ Each profile field has multiple keyword variations:
 
 - `firstName`: first name, first-name, firstname, fname, given name, forename
 - `lastName`: last name, last-name, lastname, lname, surname, family name
+- `fullName`: full name, fullname, name, applicant name, complete name, full-name
 - `email`: email, e-mail, mail
 - `phone`: phone, mobile, tel, contact number, cell
 - `address`: address, street, addr, line 1, line1
@@ -79,6 +81,17 @@ Each profile field has multiple keyword variations:
 - `coverLetter`: cover letter, covering letter, why do you want, motivation
 - `linkedIn`: linkedin
 - `website`: website, portfolio, personal url, personal site
+
+## Testing Sites
+
+Try the extension on these popular job sites to test resume upload and full name filling:
+
+- **Naukri.com**: Indian job site with standard resume uploads.
+- **Indeed.com**: Global site with application forms.
+- **LinkedIn Jobs**: Professional networking with job applications.
+- **Monster.com**: International job board.
+
+Navigate to a job posting, apply, and use the extension's "Fill" button.
 
 ## Usage Steps
 
@@ -113,18 +126,16 @@ Follow the installation instructions above.
 ### Step 4: Autofill a Job Application
 1. Navigate to the job application form page
 2. Click the extension icon
-3. Click the Autofill tab
-4. Click "Autofill This Page"
-5. The extension will:
-   - Fill all matching text fields with your profile data
+3. Click the "Fill" button in the popup header
+4. The extension will:
+   - Fill all matching text fields with your profile data (including full name by combining first/last)
    - Upload your resume to file input fields (if detected)
    - Show results with count of filled/skipped fields
 
 ### Step 5: Clear If Needed
 1. Click the extension icon
-2. Go to Autofill tab
-3. Click "Clear Filled Fields"
-4. All fields with `data-autofilled="true"` will be cleared
+2. Click the "🗑️" button (Clear) in the popup header
+3. All fields with `data-autofilled="true"` will be cleared
 
 ## Project Structure
 

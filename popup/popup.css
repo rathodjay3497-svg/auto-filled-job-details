@@ -237,6 +237,34 @@ body {
   line-height: 1.5;
 }
 
+.input-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-password-wrapper input {
+  flex: 1;
+  padding-right: 36px;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  color: #64748b;
+  user-select: none;
+}
+
+.btn-toggle-password:hover {
+  color: #2563EB;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
