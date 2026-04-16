@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const m = require\\(''./manifest.json''\\); console.log\\(''Manifest OK:'', m.name, ''v''+m.version, ''| MV''+m.manifest_version\\);\" --cwd \"D:/Jay Rathod/Projects/auto-fill-job-details\")",
+      "Bash(node -e \"const fs=require\\(''fs''\\); JSON.parse\\(fs.readFileSync\\(''D:/Jay Rathod/Projects/auto-fill-job-details/manifest.json'',''utf8''\\)\\); console.log\\(''manifest.json is valid JSON''\\);\")"
+    ]
+  }
+}
